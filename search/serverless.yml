@@ -1,0 +1,27 @@
+service: mobile-eats
+provider:
+  name: aws
+  runtime: nodejs6.10
+  stage: dev
+  region: us-west-1
+  memorySize: 512
+
+functions:
+  search:
+    handler: handler.search
+    events:
+     - http:
+         path: foodtrucks/search
+         method: get
+         request:
+            parameters:
+              querystrings:
+                location: true
+              headers:
+                Authorization: true
+  auth:
+    handler: handler.auth
+    events:
+      - http:
+          path: foodtrucks/auth
+          method: post

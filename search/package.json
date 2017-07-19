@@ -1,0 +1,18 @@
+{
+  "name": "search",
+  "version": "1.0.0",
+  "description": "mobile eats search",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws"
+  ],
+  "author": "hectorguo",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise-native": "^1.0.4"
+  }
+}
