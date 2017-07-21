@@ -9,10 +9,10 @@ A RESTful Service for querying food trucks info based on location.
 - [MobileEats API](#mobileeats-api)
     - [Architecture](#architecture)
     - [APIs](#apis)
-        - [Authentication](#authentication)
+        - [1. Authentication](#1-authentication)
             - [Request](#request)
             - [Sample](#sample)
-        - [Search Food Trucks](#search-food-trucks)
+        - [2. Search Food Trucks](#2-search-food-trucks)
             - [Request](#request-1)
             - [Sample](#sample-1)
     - [Online Test](#online-test)
@@ -27,7 +27,7 @@ A RESTful Service for querying food trucks info based on location.
 
 The APIs are consistent with [Yelp's Fusion API](https://www.yelp.com/developers/documentation/v3/business_search), but it focuses on searching food trucks.
 
-### Authentication
+### 1. Authentication
 
 By posting this request, you will get a `access_token` and `token_type`.
 Please attach the two parameters into HTTP Headers when you send a `GET` request for searching food trucks.
@@ -54,7 +54,7 @@ POST https://jirv8u2ell.execute-api.us-west-1.amazonaws.com/dev/foodtrucks/auth
 }
 ```
 
-### Search Food Trucks
+### 2. Search Food Trucks
 
 Search food trucks by city or geolocation.
 
