@@ -25,7 +25,7 @@ A RESTful Service for querying food trucks info based on location.
 
 ## APIs
 
-The APIs are consistent with [Yelp's Fusion API](https://www.yelp.com/developers/documentation/v2/search_api), but it focuses on searching food trucks.
+The APIs are consistent with [Yelp's Fusion API](https://www.yelp.com/developers/documentation/v3/business_search), but it focuses on searching food trucks.
 
 ### Authentication
 
