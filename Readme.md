@@ -15,6 +15,9 @@ A RESTful Service for querying food trucks info based on location.
         - [2. Search Food Trucks](#2-search-food-trucks)
             - [Request](#request-1)
             - [Sample](#sample-1)
+        - [3. Get Food Truck by id](#3-get-food-truck-by-id)
+            - [Request](#request-2)
+            - [Sample](#sample-2)
     - [Online Test](#online-test)
 
 <!-- /TOC -->
@@ -170,8 +173,143 @@ businesses[x].review_count | int | Number of reviews for this business.
 businesses[x].url | string | URL for business page on Yelp.
 businesses[x].transactions | string[] | A list of Yelp transactions that the business is registered for. Current supported values are "pickup", "delivery", and "restaurant_reservation".
 
+### 3. Get Food Truck by id
+
+Get food truck by id.
+
+#### Request
+
+```
+GET /foodtrucks/{id}
+```
+
+#### Sample
+
+```
+GET https://jirv8u2ell.execute-api.us-west-1.amazonaws.com/dev/foodtrucks/gold-rush-eatery-sunnyvale-6
+```
+
+**Request Headers**
+
+```
+Content-Type: application/json
+Authorization: Bearer UOG4x25kRFF6bWtb-Sq8wP2J3mD9NZfSKbKdweHWO0nC7C-A5-ROuVH30RQ7_2tQrYpIAvOuIjI9OBtON8BtUb49la3UGXmc0B_tgTddC14pp0ceMTSHY_xxnyhtWXYx
+```
+
+**Response Body**
+
+```json
+{
+    "statusCode": 200,
+    "body": {
+        "id": "gold-rush-eatery-sunnyvale-6",
+        "name": "Gold Rush Eatery",
+        "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/jV0YqLFFvpWIUlJuMR9Owg/o.jpg",
+        "is_claimed": true,
+        "is_closed": false,
+        "url": "https://www.yelp.com/biz/gold-rush-eatery-sunnyvale-6?adjust_creative=XlnTMhO5pJ8whMNEegSKig&utm_campaign=yelp_api_v3&utm_medium=api_v3_business_lookup&utm_source=XlnTMhO5pJ8whMNEegSKig",
+        "phone": "+14087435336",
+        "display_phone": "(408) 743-5336",
+        "review_count": 110,
+        "categories": [
+            {
+                "alias": "foodtrucks",
+                "title": "Food Trucks"
+            },
+            {
+                "alias": "burgers",
+                "title": "Burgers"
+            },
+            {
+                "alias": "sandwiches",
+                "title": "Sandwiches"
+            }
+        ],
+        "rating": 4,
+        "location": {
+            "address1": "1010 S Wolfe Rd",
+            "address2": null,
+            "address3": "",
+            "city": "Sunnyvale",
+            "zip_code": "94036",
+            "country": "US",
+            "state": "CA",
+            "display_address": [
+                "1010 S Wolfe Rd",
+                "Sunnyvale, CA 94036"
+            ],
+            "cross_streets": ""
+        },
+        "coordinates": {
+            "latitude": 37.3551306948281,
+            "longitude": -122.010198819353
+        },
+        "photos": [
+            "https://s3-media3.fl.yelpcdn.com/bphoto/jV0YqLFFvpWIUlJuMR9Owg/o.jpg",
+            "https://s3-media2.fl.yelpcdn.com/bphoto/ZZA6l-8dp9y-GzQ1XrZITw/o.jpg",
+            "https://s3-media3.fl.yelpcdn.com/bphoto/5aZk_HEHoQ25L6fqKO4T3w/o.jpg"
+        ],
+        "price": "$$",
+        "hours": [
+            {
+                "open": [
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 0
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 1
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 2
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 3
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 4
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 5
+                    },
+                    {
+                        "is_overnight": false,
+                        "start": "0900",
+                        "end": "2100",
+                        "day": 6
+                    }
+                ],
+                "hours_type": "REGULAR",
+                "is_open_now": false
+            }
+        ],
+        "transactions": [
+            "pickup"
+        ]
+    }
+}
+```
+
+
 ## Online Test
 
 You can test the APIs through POSTMAN
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a5d66337d334e29a0c87)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/a5d66337d334e29a0c87)

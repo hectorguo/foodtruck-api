@@ -19,6 +19,18 @@ functions:
                 location: true
               headers:
                 Authorization: true
+  business:
+    handler: handler.business
+    events:
+     - http:
+         path: foodtrucks/{id}
+         method: get
+         request:
+            parameters:
+              querystrings:
+                locale: false
+              headers:
+                Authorization: true
   auth:
     handler: handler.auth
     events:
