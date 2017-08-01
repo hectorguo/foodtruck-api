@@ -37,3 +37,5 @@ functions:
       - http:
           path: foodtrucks/auth
           method: post
+  graphql:
+    handler: handler.graphql

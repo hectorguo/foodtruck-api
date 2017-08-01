@@ -3,6 +3,7 @@ const request = require('request-promise-native');
 const YELP_AUTH_API = 'https://api.yelp.com/oauth2/token';
 const YELP_SEARCH_API = 'https://api.yelp.com/v3/businesses/search?term=foodtrucks';
 const YELP_BUSINESS_API = 'https://api.yelp.com/v3/businesses';
+const YELP_GRAPHQL_API = 'https://api.yelp.com/v3/graphql';
 
 const YELP_CLIENT_ID = 'XlnTMhO5pJ8whMNEegSKig';
 const YELP_CLIENT_SECRET = 'iV7Cd8axrxbGPTV2jtDX60tM99MCTW3kkEswBQ4JQDMfr3MsyDUyCkcxcxsz5I2w';
@@ -101,4 +102,22 @@ module.exports.auth = (event, context, callback) => {
       console.error(err.message);
       callback(null, err.message);
     });
+}
+
+module.exports.graphql = (event, context, callback) => {
+  request.post({
+    url: YELP_GRAPHQL_API,
+    headers: {
+      authorization: event.token || "Bearer UOG4x25kRFF6bWtb-Sq8wP2J3mD9NZfSKbKdweHWO0nC7C-A5-ROuVH30RQ7_2tQrYpIAvOuIjI9OBtON8BtUb49la3UGXmc0B_tgTddC14pp0ceMTSHY_xxnyhtWXYx",
+      "content-type": "application/graphql"
+    },
+    body: event.query
+  })
+  .then((res) => JSON.parse(res))
+  .then((res) => {
+    callback(null, res);
+  })
+  .catch((err) => {
+    console.error(err.message);
+  });
 }

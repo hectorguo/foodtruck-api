@@ -1,0 +1,19 @@
+{
+  "name": "mobileeats-graphql",
+  "version": "1.0.0",
+  "description": "graphql for mobile eats",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "lambda",
+    "graphql"
+  ],
+  "author": "hectorguo",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.93.0",
+    "graphql": "^0.10.5"
+  }
+}
