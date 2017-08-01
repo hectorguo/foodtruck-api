@@ -1,14 +1,6 @@
-*.class
-target
-/bin/
-/.settings/
-.project
-.classpath
-
-# Package Files
-*.jar
-*.war
-*.ear
+# package directories
+node_modules
+jspm_packages
 
 # Serverless directories
 .serverless

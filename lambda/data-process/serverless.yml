@@ -19,7 +19,11 @@ service: data-process
 
 provider:
   name: aws
-  runtime: java8
+  runtime: nodejs6.10
+  stage: dev
+  region: us-west-1
+  memorySize: 512
+  # profile: silver-lining
 
 # you can overwrite defaults here
 #  stage: dev
@@ -46,13 +50,19 @@ provider:
 #    variable1: value1
 
 # you can add packaging information here
-package:
-  artifact: target/hello-dev.jar
+#package:
+#  include:
+#    - include-me.js
+#    - include-me-dir/**
+#  exclude:
+#    - exclude-me.js
+#    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: com.serverless.Handler
-
+  # processData:
+  #   handler: handler.processData
+  queryByLatLon:
+    handler: handler.queryByLatLon
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details

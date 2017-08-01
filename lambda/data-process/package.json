@@ -1,0 +1,20 @@
+{
+  "name": "data-process",
+  "version": "1.0.0",
+  "description": "data processing for mobile eats",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "lambda"
+  ],
+  "author": "hectorguo",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.92.0",
+    "dynamodb-geo": "^0.3.1",
+    "dynamodb-marshaler": "^2.0.0"
+  }
+}
