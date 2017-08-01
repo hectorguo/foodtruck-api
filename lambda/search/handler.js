@@ -87,16 +87,10 @@ module.exports.auth = (event, context, callback) => {
 
   request.post(options)
     .then((res) => {
-      const response = {
-        statusCode: 200,
-        body: res
-      };
+      const response = JSON.parse(res);
       
       callback(null, response);
-      return JSON.parse(response);
-    })
-    .then((resJson) => {
-      token = `${token_type} ${access_token}`;
+      return response;
     })
     .catch((err) => {
       console.error(err.message);
@@ -108,16 +102,20 @@ module.exports.graphql = (event, context, callback) => {
   request.post({
     url: YELP_GRAPHQL_API,
     headers: {
-      authorization: event.token || "Bearer UOG4x25kRFF6bWtb-Sq8wP2J3mD9NZfSKbKdweHWO0nC7C-A5-ROuVH30RQ7_2tQrYpIAvOuIjI9OBtON8BtUb49la3UGXmc0B_tgTddC14pp0ceMTSHY_xxnyhtWXYx",
-      "content-type": "application/graphql"
+      Authorization: event.token || "Bearer UOG4x25kRFF6bWtb-Sq8wP2J3mD9NZfSKbKdweHWO0nC7C-A5-ROuVH30RQ7_2tQrYpIAvOuIjI9OBtON8BtUb49la3UGXmc0B_tgTddC14pp0ceMTSHY_xxnyhtWXYx",
+      "Content-Type": event.contentType || "application/graphql"
     },
     body: event.query
   })
-  .then((res) => JSON.parse(res))
+  .then((res) => {
+    console.log("Response =", res);
+    return JSON.parse(res);
+  })
   .then((res) => {
     callback(null, res);
   })
   .catch((err) => {
     console.error(err.message);
+    callback(null, err.message);
   });
 }

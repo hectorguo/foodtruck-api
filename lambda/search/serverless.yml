@@ -19,6 +19,8 @@ functions:
                 location: true
               headers:
                 Authorization: true
+            template:
+              application/json: '{ "token" : "$input.params(''Authorization'')" }'
   business:
     handler: handler.business
     events:
@@ -31,6 +33,8 @@ functions:
                 locale: false
               headers:
                 Authorization: true
+            template:
+              application/json: '{ "token" : "$input.params(''Authorization'')" }'
   auth:
     handler: handler.auth
     events:
@@ -39,3 +43,10 @@ functions:
           method: post
   graphql:
     handler: handler.graphql
+    events:
+      - http:
+          path: foodtrucks/graphql
+          method: post
+          request:
+            template:
+              application/graphql: '{ "token" : "$input.params(''Authorization'')", "query" : "$util.base64Decode($input.body)" }'

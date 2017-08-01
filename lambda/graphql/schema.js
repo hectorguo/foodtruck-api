@@ -121,28 +121,3 @@ const Schema = new GraphQLSchema({
 });
 
 export default Schema;
-
-curl -X POST -H "Authorization: Bearer UOG4x25kRFF6bWtb-Sq8wP2J3mD9NZfSKbKdweHWO0nC7C-A5-ROuVH30RQ7_2tQrYpIAvOuIjI9OBtON8BtUb49la3UGXmc0B_tgTddC14pp0ceMTSHY_xxnyhtWXYx" -H "Content-Type: application/graphql" https://api.yelp.com/v3/graphql --data '
-{
-  search(term: "burrito",
-         location: "san francisco") {
-    total
-    business {
-      name
-      rating
-      review_count
-      location {
-        address1
-        city
-        state
-        country
-      }
-      hours {
-        open {
-          start
-          end
-        }
-      }
-    }
-  }
-}'
