@@ -1,18 +1,10 @@
 'use strict';
 const request = require('request-promise-native');
-const YELP_AUTH_API = 'https://api.yelp.com/oauth2/token';
-const YELP_SEARCH_API = 'https://api.yelp.com/v3/businesses/search?term=foodtrucks';
-const YELP_BUSINESS_API = 'https://api.yelp.com/v3/businesses';
-
-const YELP_CLIENT_ID = 'XlnTMhO5pJ8whMNEegSKig';
-const YELP_CLIENT_SECRET = 'iV7Cd8axrxbGPTV2jtDX60tM99MCTW3kkEswBQ4JQDMfr3MsyDUyCkcxcxsz5I2w';
-const YELP_GRANT_TYPE = 'client_credentials';
-
 /**
  * Include AWS SDK
  */
 const AWS = require('aws-sdk');
-const docClient = new AWS.DynamoDB.DocumentClient({region:'eu-west-1'});
+const docClient = new AWS.DynamoDB.DocumentClient({region:'us-west-1'});
 
 
 /**

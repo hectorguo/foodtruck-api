@@ -1,4 +1,4 @@
-service: mobile-eats
+service: mobile-eats-test
 provider:
   name: aws
   runtime: nodejs6.10
@@ -11,7 +11,7 @@ functions:
     handler: handler.search
     events:
      - http:
-         path: v2/foodtrucks/search
+         path: foodtrucks/search
          method: get
          request:
             parameters:
@@ -23,7 +23,7 @@ functions:
     handler: handler.business
     events:
      - http:
-         path: v2/foodtrucks/{id}
+         path: foodtrucks/{id}
          method: get
          request:
             parameters:
@@ -35,5 +35,5 @@ functions:
     handler: handler.auth
     events:
       - http:
-          path: v2/foodtrucks/auth
+          path: foodtrucks/auth
           method: post
